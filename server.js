@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3001
 const bodyParser = require('body-parser')
+require('dotenv').config();
 
 app.use(bodyParser.json())
 
@@ -18,9 +19,13 @@ const member = [
     }
 ]
 
+app.get('/apikey', (req, res)=>{
+    res.send(process.env.API_KEY);
+});
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
-})
+});
 
 app.get('/api/user', (req,res)=>{
     res.sendStatus(401);
