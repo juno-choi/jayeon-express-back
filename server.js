@@ -10,7 +10,6 @@ app.use(bodyParser.json())
 app.use('/api/auth/', auth)
 
 
-
 const member = [
     {
         id : 1,
@@ -23,18 +22,6 @@ const member = [
         pw : '123456'
     }
 ]
-
-app.get('/apikey', (req, res)=>{
-    res.send(process.env.API_KEY);
-});
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
-
-app.get('/api/user', (req,res)=>{
-    res.sendStatus(401);
-});
 
 app.post('/api/user', (req,res)=>{
     const name = req.body.name;
